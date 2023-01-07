@@ -1,6 +1,0 @@
-0000000000000000000000000000000000000000 151e942d663bcd12ca6d9952f9ee0a419e923350 Michele Zanotti <m.zanotti019@gmail.com> 1670174176 +0100	commit (initial): Initial commit
-151e942d663bcd12ca6d9952f9ee0a419e923350 151e942d663bcd12ca6d9952f9ee0a419e923350 Michele Zanotti <m.zanotti019@gmail.com> 1670174295 +0100	Branch: renamed refs/heads/main to refs/heads/main
-151e942d663bcd12ca6d9952f9ee0a419e923350 23f5e15ccafd725090e39ac93c259558ed43ef50 Michele Zanotti <m.zanotti019@gmail.com> 1670174529 +0100	commit: Update gitignore
-23f5e15ccafd725090e39ac93c259558ed43ef50 596c63070e2deea30e595322eef007ef05561e1a Michele Zanotti <m.zanotti019@gmail.com> 1670175039 +0100	commit: Add HCL support
-596c63070e2deea30e595322eef007ef05561e1a af30b5b2891df466632a761904a1ec6a74932e52 Michele Zanotti <m.zanotti019@gmail.com> 1672397524 +0100	commit: Set undofile
-af30b5b2891df466632a761904a1ec6a74932e52 f673a740a0ee97b908efab21fbe6c7291c6070a2 Michele Zanotti <m.zanotti019@gmail.com> 1672510105 +0100	commit: Add toggleterm plugin
