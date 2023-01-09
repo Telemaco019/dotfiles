@@ -10,3 +10,7 @@ alias lt='ls --tree'
 ### VIM ###
 alias vim="nvim"
 alias vi="vim"
+
+
+### Kubernetes ###
+alias k="kubectl"
