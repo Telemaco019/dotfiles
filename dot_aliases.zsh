@@ -6,6 +6,8 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+### Python ###
+alias python="python3"
 
 ### VIM ###
 alias vim="nvim"
