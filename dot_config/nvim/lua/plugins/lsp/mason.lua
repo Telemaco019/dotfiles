@@ -1,47 +1,57 @@
--- import mason plugin safely
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-	return
-end
-
--- import mason-lspconfig plugin safely
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-	return
-end
-
--- import mason-null-ls plugin safely
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-	return
-end
-
--- enable mason
-mason.setup()
-
-mason_lspconfig.setup({
-	-- list of servers for mason to install
-	ensure_installed = {
-		"gopls",
-		"dockerls",
-		"cmake",
-		"marksman",
-		"terraformls",
-		"pyright",
-		"sumneko_lua",
+return {
+	"williamboman/mason.nvim",
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"jayp0521/mason-null-ls.nvim",
 	},
-	-- auto-install configured servers (with lspconfig)
-	automatic_installation = true, -- not the same as ensure_installed
-})
+	config = function()
+		-- import mason
+		local mason = require("mason")
 
-mason_null_ls.setup({
-	-- list of formatters & linters for mason to install
-	ensure_installed = {
-		"stylua", -- lua formatter
-		"hadolint", -- docker formatter
-		"markdownlint",
-		"flake8", -- python formatter
-	},
-	-- auto-install configured formatters & linters (with null-ls)
-	automatic_installation = true,
-})
+		-- import mason-lspconfig
+		local mason_lspconfig = require("mason-lspconfig")
+
+		-- import mason-null-ls
+		local mason_null_ls = require("mason-null-ls")
+
+		-- enable mason and configure icons
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+			},
+		})
+
+		mason_lspconfig.setup({
+			-- list of servers for mason to install
+			ensure_installed = {
+				"lua_ls",
+				"pyright",
+				"cmake",
+				"dockerls",
+				"gopls",
+				"marksman",
+				"terraformls",
+				"bashls",
+				"yamlls",
+			},
+			-- auto-install configured servers (with lspconfig)
+			automatic_installation = true, -- not the same as ensure_installed
+		})
+
+		mason_null_ls.setup({
+			-- list of formatters & linters for mason to install
+			ensure_installed = {
+				"stylua", -- lua formatter
+				"yamlfmt", -- yaml formatter
+				"markdownlint", -- Markdown formatter
+				"black", -- Python formatter
+			},
+			-- auto-install configured servers (with lspconfig)
+			automatic_installation = true,
+		})
+	end,
+}
