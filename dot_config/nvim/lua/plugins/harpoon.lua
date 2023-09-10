@@ -11,7 +11,7 @@ return {
 			"n",
 			"<leader>hh",
 			"<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>",
-			{ desc = "Mark file with harpoon" }
+			{ desc = "Toggle harpoon UI" }
 		)
 		keymap.set(
 			"n",

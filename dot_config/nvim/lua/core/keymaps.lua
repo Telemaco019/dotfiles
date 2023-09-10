@@ -11,10 +11,12 @@ keymap.set("n", "<C-k>", "<C-W>k")
 keymap.set("n", "<C-h>", "<C-W>h")
 keymap.set("n", "<C-l>", "<C-W>l")
 
+-- Tabs
+keymap.set("n", "<leader>tt", ":tab split<CR>")
+
 ------------------
 -- Plugins
 ------------------
-
 
 -- telescope git commands
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
