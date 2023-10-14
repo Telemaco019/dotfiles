@@ -28,6 +28,7 @@ return {
 					"markdown",
 					"markdown_inline",
 					"bash",
+					"go",
 					"lua",
 					"vim",
 					"dockerfile",
