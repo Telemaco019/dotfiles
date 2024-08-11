@@ -74,12 +74,6 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- configure python server
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
 		-- configure terraformls
 		lspconfig["terraformls"].setup({
 			capabilities = capabilities,
@@ -102,16 +96,19 @@ return {
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
+					analyses = {
+						unusedparams = true,
+					},
+				},
+			},
 		})
 
 		-- configure cmake
 		lspconfig["cmake"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure rust analyzer
-		lspconfig["rust_analyzer"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

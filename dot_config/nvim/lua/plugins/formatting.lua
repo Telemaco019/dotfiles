@@ -13,6 +13,11 @@ return {
 				python = { "isort", "black" },
 				terraform = { "terraform_fmt" },
 				zig = { "zigfmt" },
+				go = {
+					"gofmt",
+					"goimports_reviser",
+					"golines",
+				},
 			},
 			format_on_save = {
 				lsp_fallback = true,
