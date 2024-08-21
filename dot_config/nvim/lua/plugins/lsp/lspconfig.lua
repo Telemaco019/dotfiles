@@ -92,6 +92,24 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure html
+		lspconfig["html"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure cssls
+		lspconfig["cssls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure tailwindcss
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure gopls
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,

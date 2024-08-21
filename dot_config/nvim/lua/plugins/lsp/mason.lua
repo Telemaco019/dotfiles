@@ -29,6 +29,9 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"lua_ls",
+				"html",
+				"cssls",
+				"tailwindcss",
 				"cmake",
 				"dockerls",
 				"gopls",
