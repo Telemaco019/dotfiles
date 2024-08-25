@@ -96,6 +96,11 @@ return {
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = {
+				"html",
+				"php",
+				"templ",
+			},
 		})
 
 		-- configure cssls
@@ -106,6 +111,24 @@ return {
 
 		-- configure tailwindcss
 		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {
+				"html",
+				"css",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"svelte",
+				"php",
+				"templ",
+			},
+		})
+
+		-- configure templ
+		lspconfig["templ"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

@@ -35,6 +35,7 @@ return {
 				"cmake",
 				"dockerls",
 				"gopls",
+				"templ",
 				"marksman",
 				"terraformls",
 				"bashls",
@@ -48,6 +49,7 @@ return {
 			-- list of formatters & linters for mason to install
 			ensure_installed = {
 				"stylua", -- lua formatter
+				"prettier", -- javascript and HTML formatter
 				"yamlfmt", -- yaml formatter
 				"markdownlint", -- Markdown formatter
 				"black", -- Python formatter
