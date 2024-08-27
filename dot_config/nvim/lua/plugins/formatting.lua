@@ -1,5 +1,6 @@
 return {
 	"stevearc/conform.nvim",
+	opts = {},
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
@@ -8,6 +9,7 @@ return {
 			formatters_by_ft = {
 				json = { "prettier" },
 				yaml = { "prettier" },
+				html = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
@@ -19,14 +21,14 @@ return {
 					"golines",
 				},
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			-- format_on_save = {
+			-- 	lsp_fallback = true,
+			-- 	async = false,
+			-- 	timeout_ms = 1000,
+			-- },
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+		vim.keymap.set({ "n", "v" }, "<leader>q", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,
