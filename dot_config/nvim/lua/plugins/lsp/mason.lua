@@ -54,6 +54,7 @@ return {
 				"markdownlint", -- Markdown formatter
 				"black", -- Python formatter
 				"tflint", -- Terraform linter
+        "golangci-lint", -- Golang linter
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,
