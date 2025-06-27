@@ -13,8 +13,10 @@ return {
 			local treesitter = require("nvim-treesitter.configs")
 
 			-- configure treesitter
-			treesitter.setup({ -- enable syntax highlighting
+			treesitter.setup({
+				sync_install = false,
 				highlight = {
+					-- enable syntax highlighting
 					enable = true,
 				},
 				-- enable indentation

@@ -48,10 +48,14 @@ return {
 			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 			opts.desc = "Go to previous diagnostic"
-			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+			keymap.set("n", "[d", function()
+				vim.diagnostic.jump({ count = -1, float = true })
+			end, opts) -- jump to previous diagnostic in buffer
 
 			opts.desc = "Go to next diagnostic"
-			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+			keymap.set("n", "]d", function()
+				vim.diagnostic.jump({ count = 1, float = true })
+			end, opts) -- jump to next diagnostic in buffer
 
 			opts.desc = "Show documentation for what is under cursor"
 			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
@@ -134,6 +138,7 @@ return {
 		lspconfig["gopls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "go", "gomod", "templ" },
 			settings = {
 				gopls = {
 					completeUnimported = true,
@@ -141,10 +146,27 @@ return {
 					analyses = {
 						unusedparams = true,
 					},
+					codelenses = {
+						generate = true,
+						gc_details = true,
+						test = true,
+						tidy = true,
+						upgrade_dependency = true,
+						vendor = true,
+					},
+					-- enable code actions like "Add import"
+					hints = {
+						assignVariableTypes = true,
+						compositeLiteralFields = true,
+						compositeLiteralTypes = true,
+						constantValues = true,
+						functionTypeParameters = true,
+						parameterNames = true,
+						rangeVariableTypes = true,
+					},
 				},
 			},
 		})
-
 		-- configure cmake
 		lspconfig["cmake"].setup({
 			capabilities = capabilities,
@@ -185,6 +207,12 @@ return {
 
 		-- configure bashls
 		lspconfig["bashls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure sqlfmt
+		lspconfig["sqls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
