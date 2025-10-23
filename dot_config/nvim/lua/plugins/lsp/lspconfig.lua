@@ -7,9 +7,6 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -76,25 +73,25 @@ return {
 		end
 
 		-- configure terraformls
-		lspconfig["terraformls"].setup({
+		vim.lsp.config("terraformls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure dockerls
-		lspconfig["dockerls"].setup({
+		vim.lsp.config("dockerls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure marksman
-		lspconfig["marksman"].setup({
+		vim.lsp.config("marksman", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure html
-		lspconfig["html"].setup({
+		vim.lsp.config("html", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = {
@@ -105,13 +102,13 @@ return {
 		})
 
 		-- configure cssls
-		lspconfig["cssls"].setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure tailwindcss
-		lspconfig["tailwindcss"].setup({
+		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = {
@@ -129,13 +126,13 @@ return {
 		})
 
 		-- configure templ
-		lspconfig["templ"].setup({
+		vim.lsp.config("templ", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure gopls
-		lspconfig["gopls"].setup({
+		vim.lsp.config("gopls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "go", "gomod", "templ" },
@@ -168,13 +165,13 @@ return {
 			},
 		})
 		-- configure cmake
-		lspconfig["cmake"].setup({
+		vim.lsp.config("cmake", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure yamlls
-		lspconfig["yamlls"].setup({
+		vim.lsp.config("yamlls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -206,21 +203,35 @@ return {
 		})
 
 		-- configure bashls
-		lspconfig["bashls"].setup({
+		vim.lsp.config("bashls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure sqlfmt
-		lspconfig["sqls"].setup({
+		vim.lsp.config("sqls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			cmd = "lua-language-server",
+			filetypes = {
+				"lua",
+			},
+			root_markers = {
+				".luarc.json",
+				".luarc.jsonc",
+				".luacheckrc",
+				".stylelua.toml",
+				"stylelua.toml",
+				"selene.toml",
+				"selene.yml",
+				".git",
+			},
 			settings = { -- custom settings for lua
 				Lua = {
 					-- make the language server recognize "vim" global
