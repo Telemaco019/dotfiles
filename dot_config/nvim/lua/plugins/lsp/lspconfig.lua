@@ -214,6 +214,15 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure zig
+		vim.lsp.config("zls", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {
+				"zig",
+			},
+		})
+
 		-- configure lua server (with special settings)
 		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
