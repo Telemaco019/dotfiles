@@ -132,38 +132,38 @@ return {
 		})
 
 		-- configure gopls
-		vim.lsp.config("gopls", {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "go", "gomod", "templ" },
-			settings = {
-				gopls = {
-					completeUnimported = true,
-					usePlaceholders = true,
-					analyses = {
-						unusedparams = true,
-					},
-					codelenses = {
-						generate = true,
-						gc_details = true,
-						test = true,
-						tidy = true,
-						upgrade_dependency = true,
-						vendor = true,
-					},
-					-- enable code actions like "Add import"
-					hints = {
-						assignVariableTypes = true,
-						compositeLiteralFields = true,
-						compositeLiteralTypes = true,
-						constantValues = true,
-						functionTypeParameters = true,
-						parameterNames = true,
-						rangeVariableTypes = true,
-					},
-				},
-			},
-		})
+		-- vim.lsp.config("gopls", {
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "go", "gomod", "templ" },
+		-- 	settings = {
+		-- 		gopls = {
+		-- 			completeUnimported = true,
+		-- 			usePlaceholders = true,
+		-- 			analyses = {
+		-- 				unusedparams = true,
+		-- 			},
+		-- 			codelenses = {
+		-- 				generate = true,
+		-- 				gc_details = true,
+		-- 				test = true,
+		-- 				tidy = true,
+		-- 				upgrade_dependency = true,
+		-- 				vendor = true,
+		-- 			},
+		-- 			-- enable code actions like "Add import"
+		-- 			hints = {
+		-- 				assignVariableTypes = true,
+		-- 				compositeLiteralFields = true,
+		-- 				compositeLiteralTypes = true,
+		-- 				constantValues = true,
+		-- 				functionTypeParameters = true,
+		-- 				parameterNames = true,
+		-- 				rangeVariableTypes = true,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 		-- configure cmake
 		vim.lsp.config("cmake", {
 			capabilities = capabilities,
