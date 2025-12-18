@@ -1,3 +1,5 @@
+alias dk="docker kill $(docker ps -q) 2>/dev/null"
+
 ### LSD ###
 alias ls='lsd'
 alias l='ls'
@@ -16,3 +18,5 @@ alias vi="vim"
 
 ### Kubernetes ###
 alias k="kubectl"
+
+
