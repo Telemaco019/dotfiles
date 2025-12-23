@@ -17,6 +17,7 @@ alias vi="vim"
 
 
 ### Kubernetes ###
+alias kubectl="kubecolor"
 alias k="kubectl"
 
 
