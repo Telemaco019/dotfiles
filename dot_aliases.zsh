@@ -15,9 +15,11 @@ alias python="python3"
 alias vim="nvim"
 alias vi="vim"
 
-
 ### Kubernetes ###
-alias kubectl="kubecolor"
+alias helm="kubesafe helm"
+alias kubectl="kubesafe kubecolor"
 alias k="kubectl"
+alias kube-cleanup-pr='kubectl config get-contexts -o name | grep "_pr[0-9]" | xargs -I {} kubectl config delete-context {}'
 
-
+### Terraform ###
+alias tf="terraform"
