@@ -3,48 +3,25 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
+		lazy = false,
 		dependencies = {
 			"windwp/nvim-ts-autotag",
 		},
 		config = function()
-			-- import nvim-treesitter plugin
-			local treesitter = require("nvim-treesitter.configs")
-
-			-- configure treesitter
-			treesitter.setup({
-				sync_install = false,
-				highlight = {
-					-- enable syntax highlighting
-					enable = true,
-				},
-				-- enable indentation
-				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = { enable = true },
-				-- ensure these language parsers are installed
-				ensure_installed = {
-					"python",
-					"yaml",
-					"markdown",
-					"markdown_inline",
-					"bash",
-					"go",
-					"lua",
-					"vim",
-					"dockerfile",
-					"gitignore",
-					"zig",
-				},
-				-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-				context_commentstring = {
-					enable = true,
-					enable_autocmd = false,
-				},
-				-- auto install above language parsers
-				auto_install = true,
+			require("nvim-treesitter").setup({
+				install_dir = vim.fn.stdpath("data") .. "/lazy/nvim-treesitter",
 			})
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function()
+					pcall(vim.treesitter.start)
+				end,
+			})
+
+			vim.opt.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+			require("nvim-ts-autotag").setup()
 		end,
 	},
 }
