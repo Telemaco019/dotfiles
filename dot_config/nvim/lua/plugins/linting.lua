@@ -7,6 +7,7 @@ return {
 		lint.linters_by_ft = {
 			terraform = { "tflint" },
 			go = { "golangcilint" },
+			python = { "ruff", "mypy" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

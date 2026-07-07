@@ -54,6 +54,8 @@ return {
 				"yamlfmt", -- yaml formatter
 				"markdownlint", -- Markdown formatter
 				"black", -- Python formatter
+				"ruff", -- Python linter
+				"mypy", -- Python type checker
 				"tflint", -- Terraform linter
         "golangci-lint", -- Golang linter
 			},
